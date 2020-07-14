@@ -1,3 +1,4 @@
+This project is developed by 2019 S2 INFO3600 group36
 #Installation#
 
 Required Python packages:
