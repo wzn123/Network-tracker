@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Network Tracker</title>
+      <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+  </head>
+<div class="topnav">
+  <a href="/">Activity</a>
+  <a class="active" href="/devices">Devices</a>
+  <a href="/networkconfig">Network Configuration</a>
+</div>
+
+
+  <body>
+      <!-- <form action = "http://localhost:5000/result" method = "POST"> -->
+        <h1> Define Devices </h1>
+       <form action="{{ url_for('devices') }}" method="post">
+         <p>Device Name: <input type = "text" name = "Name" /></p>
+         <p>IP Address: <input type = "text" name = "IP" /></p>
+         <p><input type = "submit" value = "Add device" /></p>
+      </form>
+
+
+
+        <h1> Devices </h1>
+<!--           <form action="{{ url_for('devices') }}" method="post">
+           <form action="{{ url_for('devices') }}" method="post">
+             <input type="text" name="projectFilepath">
+            <p>Physics <input type = "text" name = "Physics" /></p>
+           <p>Chemistry <input type = "text" name = "chemistry" /></p>
+           <input type="submit">
+      </form> -->
+
+
+            <table border = 1>
+           {% for key, value in device_list.items() %}
+            <tr>
+               <th> {{ key }} </th>
+               <td> {{ value }} </td>
+            </tr>
+         {% endfor %}
+      </table>
+
+      <form action="{{ url_for('devices') }}" method="post">
+        <p><input type = "submit", name="reset_button" value = "Reset devices" /></p>
+
+      </form>
+
+
+  </body>
+</html>
